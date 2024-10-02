@@ -130,7 +130,7 @@ input:checked ~.sidebar{
             </button>
             <ul class="dropdown-menu">
                 <li><a href="studentinfo.php">Admission Login</a></li>
-                <li><a href="admission.php">Admission From</a></li>
+                <!-- <li><a href="admission.php">Admission From</a></li> -->
                 <li><a href="adm-all-data.php">Admission Data</a></li>
             </ul>
             </div>
