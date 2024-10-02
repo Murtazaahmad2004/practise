@@ -190,7 +190,7 @@ function input_data($data): string {
                         <b>Signup</b>
                     </div>
                 <div class="panel-body">
-                        <img src="hl.jpg" class="img-thumbnail" style="width: 190px; margin-left:75px">
+                        <img src="logo.jpg" class="img-thumbnail" style="width: 190px; margin-left:75px">
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="form-group">
                             <label>User Id</label>
