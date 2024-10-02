@@ -80,7 +80,6 @@ function input_data($data): string{
             font-size: 15px;
         }
         .container-fluid{
-            margin-left: 10px;
             margin-top: 55px;
         }
         .error { color: red; }
@@ -138,7 +137,7 @@ function input_data($data): string{
                     </div>
                     <div class="panel-body">
                         <div>
-                            <img src="hl.jpg" class="img-thumbnail" style="width: 150px; margin-left:75px">
+                            <img src="logo.jpg" class="img-thumbnail" style="width: 150px; margin-left:75px">
                             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                 <div class="form-group">
                                 <label>User Name</label>
