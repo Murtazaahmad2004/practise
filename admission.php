@@ -1,8 +1,9 @@
 <?php
+// Include database connection file
 include "dbconnection.php";
 
-if (isset($_POST["submit"])) 
-{
+if (isset($_POST["submit"])) {
+    // Get form data
     $id = $_POST['id'];
     $fname = $_POST['name'];
     $lname = $_POST['lname'];
@@ -15,19 +16,23 @@ if (isset($_POST["submit"]))
     $ci = $_POST['city'];
     $hb = $_POST['hear'];
 
-    $sql = "INSERT INTO addmission_info (`Std Id`, `First Name`, `Last Name`, `Student CNIC`, `Father Name`, `Father CNIC`, `Contact Number`, `Address`, `Province`, `City`, `Hear About Us`) 
+    // SQL insert query
+    $sql = "INSERT INTO addmission_info (`Std Id`, `First Name`, `Last Name`, `Student CNIC`, `Father Name`, `Father CNIC`, `Contact Number`, `Address`, `Province`, `City`, `Hear About Us?`) 
             VALUES ('$id', '$fname', '$lname', '$cnic', '$faname', '$fcnic', '$cno', '$add', '$pro', '$ci', '$hb')";
 
-    if (mysqli_query(mysql: $conn, query: $sql)) {
-        echo "<script>alert('New Data Inserted.')</script>";
+    // Execute the query and check for errors
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('New Data Inserted Successfully.');</script>";
     } else {
-        echo "<script>alert('Data Not Inserted.')</script>";
+        echo "<script>alert('Error: Could not insert data.');</script>";
+        echo "Error: " . mysqli_error($conn); // Debugging message to show SQL error
     }
 
-    mysqli_close(mysql: $conn);
+    // Close the database connection
+    mysqli_close($conn);
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,43 +86,43 @@ if (isset($_POST["submit"]))
                                 <div class="fields">
                                     <div class="input-field">
                                         <label>Std Id</label>
-                                        <input type="text" name="id" placeholder="Enter Id" class="form-control" />
+                                        <input type="text" name="id" placeholder="Enter Id" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>First Name</label>
-                                        <input type="text" name="name" placeholder="Enter First Name" class="form-control" />
+                                        <input type="text" name="name" placeholder="Enter First Name" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Last Name</label>
-                                        <input type="text" name="lname" placeholder="Enter Last Name" class="form-control" />
+                                        <input type="text" name="lname" placeholder="Enter Last Name" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Student CNIC</label>
-                                        <input type="text" name="cnic" placeholder="Enter Student CNIC" class="form-control" />
+                                        <input type="text" name="cnic" placeholder="Enter Student CNIC" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Father Name</label>
-                                        <input type="text" name="fname" placeholder="Enter Father Name" class="form-control" />
+                                        <input type="text" name="fname" placeholder="Enter Father Name" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Father CNIC</label>
-                                        <input type="text" name="facnic" placeholder="Enter Father CNIC" class="form-control" />
+                                        <input type="text" name="facnic" placeholder="Enter Father CNIC" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Contact Number</label>
-                                        <input type="text" name="cnum" placeholder="Contact Number" class="form-control" />
+                                        <input type="text" name="cnum" placeholder="Contact Number" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Address</label>
-                                        <input type="text" name="address" placeholder="Enter Full Address" class="form-control" />
+                                        <input type="text" name="address" placeholder="Enter Full Address" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Province</label>
-                                        <input type="text" name="province" placeholder="Province" class="form-control" />
+                                        <input type="text" name="province" placeholder="Province" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>City</label>
-                                        <input type="text" name="city" placeholder="City" class="form-control" />
+                                        <input type="text" name="city" placeholder="City" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Hear about us?</label>
