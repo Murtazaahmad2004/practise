@@ -43,10 +43,10 @@ $result = mysqli_num_rows($data);
 
 if($result!=0){
     while (($total = mysqli_fetch_assoc($data))){
-        $id = $total['Id'];
+        $id = $total['Std Id'];
         echo "
         <tr>
-        <td>".$total['Id']."</td>
+        <td>".$total['Std Id']."</td>
         <td>".$total['Email']."</td>
         <td>".$total['Password']."</td>
         <td>

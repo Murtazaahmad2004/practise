@@ -186,7 +186,7 @@ button a{
             </tr>
             <tr>
                 <td>Address:</td>
-                <td>Hno.Q 471 Gdian Wali Masjid Nah Niyarian Rawalpindi</td>
+                <td>Hno.Q 471 Godian Wali Masjid Mohalah Niyarian Rawalpindi</td>
             </tr>
         </table>
     </div>

@@ -121,7 +121,6 @@ input:checked ~.sidebar{
             </button>
             <ul class="dropdown-menu">
                 <li><a href="attendence.php">Attendence</a></li>
-                <li><a href="std-all-data.php">Student Data</a></li>
             </ul>
             </div>
             <div class="dropdown">
@@ -130,8 +129,8 @@ input:checked ~.sidebar{
             </button>
             <ul class="dropdown-menu">
                 <li><a href="studentinfo.php">Admission Login</a></li>
-                <!-- <li><a href="admission.php">Admission From</a></li> -->
                 <li><a href="adm-all-data.php">Admission Data</a></li>
+                <li><a href="std-all-data.php">Admission Login Data</a></li>
             </ul>
             </div>
             <div class="dropdown">

@@ -4,25 +4,41 @@ include "dbconnection.php";
 
 if (isset($_POST["submit"])) 
 {
-    $date = $_POST['date'];
+    $id = $_POST['id'];
+    $date = $_POST['date']; // Entry date input from the form
     $deg = $_POST['deg'];
-    $py = $_POST['pdy'];
+    $py = $_POST['pdy']; // Passing date input from the form
     $pro = $_POST['prog'];
 
-    $sql = "INSERT INTO almuni_form (`Entry Date`, `Degree`, `Passing Year`, `Program`) 
-            VALUES ('$date', '$deg', '$py', '$pro')";
+    // Convert Entry Date to the correct format
+    $entryDateObj = DateTime::createFromFormat('Y-m-d', $date);
+    if ($entryDateObj === false) {
+        echo "<script>alert('Invalid Entry Date format. Please use YYYY-MM-DD.')</script>";
+        exit;
+    }
+    $formattedEntryDate = $entryDateObj->format('Y-m-d');
 
-    if (mysqli_query(mysql: $conn, query: $sql)) {
-        // header('location: almuni_form');
+    // Convert Passing Date to the correct format
+    $passingDateObj = DateTime::createFromFormat('Y-m-d', $py);
+    if ($passingDateObj === false) {
+        echo "<script>alert('Invalid Passing Date format. Please use YYYY-MM-DD.')</script>";
+        exit;
+    }
+    $formattedPassingDate = $passingDateObj->format('Y-m-d');
+
+    $sql = "INSERT INTO almuni_form (`Std Id`, `Entry Date`, `Degree`, `Passing Date`, `Program`) 
+            VALUES ('$id', '$formattedEntryDate', '$deg', '$formattedPassingDate', '$pro')";
+
+    if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Data Inserted.')</script>";
     } else {
         echo "<script>alert('Data Not Inserted.')</script>";
     }
 
-    mysqli_close(mysql: $conn);
+    mysqli_close($conn);
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +72,10 @@ if (isset($_POST["submit"]))
                             <form method="post">
                                 <div class="fields">
                                     <div class="input-field">
+                                        <label>Std Id</label>
+                                        <input type="id" name="id" placeholder="Enter Std Id" class="form-control" />
+                                    </div>
+                                    <div class="input-field">
                                         <label>Entry Date</label>
                                         <input type="text" name="date" placeholder="Enter Date" class="form-control" />
                                     </div>
@@ -64,8 +84,8 @@ if (isset($_POST["submit"]))
                                         <input type="text" name="deg" placeholder="Degree Name" class="form-control" />
                                     </div>
                                     <div class="input-field">
-                                        <label>Passing Degree Year</label>
-                                        <input type="text" name="pdy" placeholder="Enter Passing Degree Year" class="form-control" />
+                                        <label>Passing Date</label>
+                                        <input type="text" name="pdy" placeholder="Enter Passing Date" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Program</label>
