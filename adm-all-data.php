@@ -38,7 +38,6 @@
         <th>Address</th>
         <th>Province</th>
         <th>City</th>
-        <th>Hear About Us?</th>
         <th>Operation</th>
     </tr>
 <?php
@@ -64,7 +63,6 @@ if($result!=0){
         <td>".$total['Address']."</td>
         <td>".$total['Province']."</td>
         <td>".$total['City']."</td>
-        <td>".$total['Hear About Us']."</td>
         <td>
         <button class='btn btn-primary'><a href='update2.php?id=$id'>Update</a></button>
         <button class='btn btn-danger'><a href='delete2.php?id=$id'>Delete</a></button>

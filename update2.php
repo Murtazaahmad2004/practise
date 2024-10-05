@@ -1,19 +1,16 @@
 <?php
-
 include "dbconnection.php";
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM addmission_info WHERE `Std Id` = '$id'";
-$data = mysqli_query($conn,$sql);
+$data = mysqli_query($conn, $sql);
 $result = mysqli_fetch_assoc($data);
-
 ?>
 
 <?php
 include "dbconnection.php";
 
-if (isset($_POST["update"])) 
-{
+if (isset($_POST["update"])) {
     $id = $_POST['id'];
     $fname = $_POST['name'];
     $lname = $_POST['lname'];
@@ -24,10 +21,9 @@ if (isset($_POST["update"]))
     $add = $_POST['address'];
     $prov = $_POST['province'];
     $cty = $_POST['city'];
-    $hbu = $_POST['hear'];
 
+    // Corrected SQL query (removed the extra comma before WHERE clause)
     $sql = "UPDATE addmission_info SET 
-            `Std Id` = '$id', 
             `First Name` = '$fname', 
             `Last Name` = '$lname', 
             `Student CNIC` = '$cnic', 
@@ -36,25 +32,27 @@ if (isset($_POST["update"]))
             `Contact Number` = '$cno',
             `Address` = '$add',
             `Province` = '$prov',
-            `City` = '$cty',
-            `Hear About Us` = '$hbu' 
-            WHERE `Std Id`='$id'";
+            `City` = '$cty' 
+            WHERE `Std Id` = '$id'";
 
+    // Check if the update was successful
     if (mysqli_query($conn, $sql)) {
-        header('location: adm-all-data.php');
+        // Redirect after successful update
+        header('Location: adm-all-data.php');
     } else {
-        echo "<script>alert('Data Not updated.')</script>";
+        // Display error message if the update fails
+        echo "<script>alert('Data Not Updated. Error: " . mysqli_error($conn) . "');</script>";
     }
 
+    // Close the database connection
     mysqli_close($conn);
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Update Addmission Data</title>
+    <title>Update Admission Data</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="bootstrap-3.4.1-dist/css/bootstrap.css" />
@@ -100,47 +98,43 @@ if (isset($_POST["update"]))
                                 <div class="fields">
                                     <div class="input-field">
                                         <label>Std Id</label>
-                                        <input type="text" name="id" value="<?php echo $result['Std Id'];?>" placeholder="Enter Id" class="form-control" />
+                                        <input type="text" name="id" value="<?php echo $result['Std Id']; ?>" readonly class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>First Name</label>
-                                        <input type="text" name="name" value="<?php echo $result['First Name'];?>" placeholder="Enter First Name" class="form-control" />
+                                        <input type="text" name="name" value="<?php echo $result['First Name']; ?>" placeholder="Enter First Name" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Last Name</label>
-                                        <input type="text" name="lname" value="<?php echo $result['Last Name'];?>" placeholder="Enter Last Name" class="form-control" />
+                                        <input type="text" name="lname" value="<?php echo $result['Last Name']; ?>" placeholder="Enter Last Name" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Student CNIC</label>
-                                        <input type="text" name="cnic" value="<?php echo $result['Student CNIC'];?>" placeholder="Enter Student CNIC" class="form-control" />
+                                        <input type="text" name="cnic" value="<?php echo $result['Student CNIC']; ?>" placeholder="Enter Student CNIC" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Father Name</label>
-                                        <input type="text" name="fname" value="<?php echo $result['Father Name'];?>" placeholder="Enter Father Name" class="form-control" />
+                                        <input type="text" name="fname" value="<?php echo $result['Father Name']; ?>" placeholder="Enter Father Name" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Father CNIC</label>
-                                        <input type="text" name="facnic" value="<?php echo $result['Father CNIC'];?>" placeholder="Enter Father CNIC" class="form-control" />
+                                        <input type="text" name="facnic" value="<?php echo $result['Father CNIC']; ?>" placeholder="Enter Father CNIC" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Contact Number</label>
-                                        <input type="text" name="cnum" value="<?php echo $result['Contact Number'];?>" placeholder="Contact Number" class="form-control" />
+                                        <input type="text" name="cnum" value="<?php echo $result['Contact Number']; ?>" placeholder="Contact Number" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Address</label>
-                                        <input type="text" name="address" value="<?php echo $result['Address'];?>" placeholder="Enter Full Address" class="form-control" />
+                                        <input type="text" name="address" value="<?php echo $result['Address']; ?>" placeholder="Enter Full Address" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Province</label>
-                                        <input type="text" name="province" value="<?php echo $result['Province'];?>" placeholder="Province" class="form-control" />
+                                        <input type="text" name="province" value="<?php echo $result['Province']; ?>" placeholder="Province" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>City</label>
-                                        <input type="text" name="city" value="<?php echo $result['City'];?>" placeholder="City" class="form-control" />
-                                    </div>
-                                    <div class="input-field">
-                                        <label>Hear about us?</label>
-                                        <input type="text" name="hear" value="<?php echo $result['Hear About Us'];?>" placeholder="Hear about us" class="form-control" />
+                                        <input type="text" name="city" value="<?php echo $result['City']; ?>" placeholder="City" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="form-group">
