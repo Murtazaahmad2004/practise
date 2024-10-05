@@ -1,39 +1,40 @@
 <?php
-
 include "dbconnection.php";
 
-if (isset($_GET['mail'])){
-$em = $_GET['mail'];
-$sql = "SELECT * FROM std_info WHERE `Email` = '$em'";
-$data = mysqli_query($conn,$sql);
-$result = mysqli_fetch_assoc($data);
+// Check if the 'mail' parameter exists in the GET request
+if (isset($_GET['mail'])) {
+    $em = $_GET['mail'];
+    $sql = "SELECT * FROM std_info WHERE `Email` = '$em'";
+    $data = mysqli_query($conn, $sql);
+    
+    // Check if any result was returned
+    if ($data && mysqli_num_rows($data) > 0) {
+        $result = mysqli_fetch_assoc($data);
+    } else {
+        $result = null; // No result found
+    }
 }
-
 ?>
-
 
 <?php
 include "dbconnection.php";
 
-if (isset($_POST["update"])) 
-{
+if (isset($_POST["update"])) {
     $em = $_POST['mail'];
     $pass = $_POST['pass'];
 
     $sql = "UPDATE std_info SET 
-            `Email` = '$em',
-            `Password` = '$pass' 
-            WHERE `Email`='$em'";
+            `Password` = '$pass'
+            WHERE `Email` = '$em'";
 
     if (mysqli_query($conn, $sql)) {
         header('location: std-all-data.php');
     } else {
-        echo "<script>alert('Data Not updated.')</script>";
+        echo "<script>alert('Data Not Updated.')</script>";
     }
 
     mysqli_close($conn);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -85,11 +86,11 @@ if (isset($_POST["update"]))
                                 <div class="fields">
                                     <div class="input-field">
                                         <label>Email</label>
-                                        <input type="text" name="mail" value="<?php echo $result['Email'];?>" placeholder="Enter Your Email" class="form-control" />
+                                        <input type="text" name="mail" value="<?php echo isset($result['Email']) ? $result['Email'] : ''; ?>" placeholder="Enter Your Email" class="form-control" />
                                     </div>
                                     <div class="input-field">
                                         <label>Password</label>
-                                        <input type="text" name="pass" value="<?php echo $result['Password'];?>" placeholder="Enter Your Password" class="form-control" />
+                                        <input type="text" name="pass" value="<?php echo isset($result['Password']) ? $result['Password'] : ''; ?>" placeholder="Enter Your Password" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="form-group">
