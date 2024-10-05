@@ -1,10 +1,9 @@
 <?php
-
 include "dbconnection.php";
 include "sidebar.php";
 
 $emailErr = $passErr = "";
-$email =  $pass = "";
+$email = $pass = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -13,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Email is required.";
     } else {
         $email = input_data($_POST['mail']);
-        if (!filter_var(value: $email, filter: FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format.";
         }
     }
@@ -23,69 +22,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $passErr = "Password is required.";
     } else {
         $pass = input_data($_POST['pass']);
-        if (strlen(string: $pass) < 6) {
-            $passErr = "Password must be at least 6 characters."; 
+        if (strlen($pass) < 6) {
+            $passErr = "Password must be at least 6 characters.";
         }
     }
 
     // Proceed only if there are no validation errors
     if (empty($emailErr) && empty($passErr)) {
-        $sql = "SELECT * FROM user_table WHERE `Email` = '$email' AND `Password` = '$pass'";
-        $que = mysqli_query(mysql: $conn, query: $sql);
-        
-        if ($que->num_rows > 0) {
-            $sql = "INSERT INTO std_info (`Email`, `Password`) VALUES ('$email', '$pass')";
-            mysqli_query(mysql: $conn, query: $sql);
-
-            echo "<script>alert('Login Ok')</script>";
+        $sql = "INSERT INTO std_info (`Email`, `Password`) VALUES ('$email', '$pass')";
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Data Inserted Successfully')</script>";
             echo "<script>window.open('admission.php','_self')</script>";
         } else {
-            echo "<script>alert('Invalid username and password')</script>";
+            echo "<script>alert('Error: Could not insert data')</script>";
         }
     }
     mysqli_close($conn);
 }
 
-// function input_data($data) {
-//     $data = trim($data);
-//     $data = stripslashes($data);
-//     $data = htmlspecialchars($data);
-//     return $data;
-// }
-?>
-
-
-<?php
-$emailErr = $passErr = "";
-$email =  $pass = "";
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(empty($_POST['mail'])){
-        $emailErr = "Email is required.";
-    } else {
-        $email = input_data($_POST['mail']);
-        if(!filter_var(value: $email, filter: FILTER_VALIDATE_EMAIL)){
-            $emailErr = "Invalid email format.";
-        }
-    }
-
-    if(empty($_POST['pass'])){
-        $passErr = "Password is required.";
-    } else {
-        $pass = input_data($_POST['pass']);
-        if(strlen(string: $pass) < 6){
-            $passErr = "Password must be at least 6 characters."; 
-        }
-    }
-}
-
-function input_data($data): string{
-    $data = trim(string: $data);
+// Function to sanitize user input
+function input_data($data): string {
+    $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars(string: $data);
+    $data = htmlspecialchars($data);
     return $data;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
