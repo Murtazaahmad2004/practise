@@ -14,11 +14,10 @@ if (isset($_POST["submit"])) {
     $add = $_POST['address'];
     $pro = $_POST['province'];
     $ci = $_POST['city'];
-    $hb = $_POST['hear'];
 
     // SQL insert query
-    $sql = "INSERT INTO addmission_info (`Std Id`, `First Name`, `Last Name`, `Student CNIC`, `Father Name`, `Father CNIC`, `Contact Number`, `Address`, `Province`, `City`, `Hear About Us?`) 
-            VALUES ('$id', '$fname', '$lname', '$cnic', '$faname', '$fcnic', '$cno', '$add', '$pro', '$ci', '$hb')";
+    $sql = "INSERT INTO addmission_info (`Std Id`, `First Name`, `Last Name`, `Student CNIC`, `Father Name`, `Father CNIC`, `Contact Number`, `Address`, `Province`, `City`) 
+            VALUES ('$id', '$fname', '$lname', '$cnic', '$faname', '$fcnic', '$cno', '$add', '$pro', '$ci')";
 
     // Execute the query and check for errors
     if (mysqli_query($conn, $sql)) {
@@ -123,10 +122,6 @@ if (isset($_POST["submit"])) {
                                     <div class="input-field">
                                         <label>City</label>
                                         <input type="text" name="city" placeholder="City" class="form-control" required />
-                                    </div>
-                                    <div class="input-field">
-                                        <label>Hear about us?</label>
-                                        <input type="text" name="hear" placeholder="Hear about us" class="form-control" />
                                     </div>
                                 </div>
                                 </div>
