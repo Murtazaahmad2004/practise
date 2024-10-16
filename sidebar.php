@@ -151,6 +151,7 @@ input:checked ~.sidebar{
                 <li><a href="courseve.php">Course Evaluation</a></li>
                 <li><a href="teacheve.php">Teacher Evaluation</a></li>
                 <li><a href="almuni.php">Almuni Form</a></li>
+                <li><a href="almuni-data.php">Almuni Form Data</a></li>
             </ul>
             </div>
             <div class="dropdown">
