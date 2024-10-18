@@ -18,7 +18,6 @@ if (isset($_POST["update"])) {
     $pdy = $_POST['pdy'];
     $prog = $_POST['prog'];
 
-    // Corrected SQL query (removed the extra comma before WHERE clause)
     $sql = "UPDATE almuni_form SET 
             `Entry Date` = '$entry', 
             `Degree` = '$deg', 
