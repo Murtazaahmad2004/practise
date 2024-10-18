@@ -8,15 +8,6 @@ include "sidebar.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-   /* body {
-    font-family: Arial, sans-serif;
-} */
-
-/* .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-} */
 
 .form-group{
     margin-left: 90%;
