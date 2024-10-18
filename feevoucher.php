@@ -2,7 +2,7 @@
 include "sidebar.php";
 include "dbconnection.php";
 
-if (isset($_POST["submit"])) 
+if (isset($_POST["Generate"])) 
 {
     $id = $_POST['id'];
     $name = $_POST['name'];
@@ -41,6 +41,14 @@ if (isset($_POST["submit"]))
             margin-top: 2%;
         }
     </style>
+<script>
+    function goToNextPage() {
+        window.location.href="challan.php";
+    }
+    function openNewWindow(event) {
+        event.preventDefault();
+    }
+    </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -70,9 +78,9 @@ if (isset($_POST["submit"]))
                                         <label>Program</label>
                                         <input type="text" name="prog" placeholder="Enter Program" class="form-control" />
                                     </div>
-                                <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                                </div>
+                                    <div class="form-group2">
+                                        <input type="button" value="Generate" class="form-control btn btn-primary" id="btnHome" onclick="goToNextPage(event)"/>
+                                    </div>
                             </form>
                         </div>
                     </div>
