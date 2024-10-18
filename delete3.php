@@ -11,5 +11,4 @@ if($data){
 } else{
     echo "Record Has Not Deleted";
 }
-
 ?>
