@@ -128,7 +128,7 @@ button a{
             <h4>Course</h4>
         </div>
         <div class="col-md-2 card">
-            <h4><a href="challan.php">Generate A Fee Voucher</a></h4>
+            <h4><a href="feevoucher.php">Generate A Fee Voucher</a></h4>
             <h4>Voucher</h4>
         </div>
         <div class="col-md-2 card">
