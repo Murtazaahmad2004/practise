@@ -159,7 +159,8 @@ input:checked ~.sidebar{
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="challan.php">Fee Voucher</a></li>
+                <li><a href="feeledger.php">Fee Ledger</a></li>
+                <li><a href="feevoucher.php">Generate Fee Voucher</a></li>
             </ul>
             </div>
         </ul>
