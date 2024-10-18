@@ -1,11 +1,11 @@
 <?php
 include "dbconnection.php";
 
+// Fetch existing data for the form
 $id = $_GET['id'];
 $sql = "SELECT * FROM almuni_form WHERE `Std Id` = '$id'";
-$data = mysqli_query(mysql: $conn, query: $sql);
-$result = mysqli_fetch_assoc(result: $data);
-
+$data = mysqli_query($conn, $sql);
+$result = mysqli_fetch_assoc($data);
 ?>
 
 <?php
@@ -20,17 +20,17 @@ if (isset($_POST["update"])) {
 
     // Corrected SQL query (removed the extra comma before WHERE clause)
     $sql = "UPDATE almuni_form SET 
-            `Std Id` = '$id', 
             `Entry Date` = '$entry', 
             `Degree` = '$deg', 
             `Passing Date` = '$pdy', 
-            `Program` = '$prog',
+            `Program` = '$prog'
             WHERE `Std Id` = '$id'";
 
     // Check if the update was successful
-    if (mysqli_query(mysql: $conn, query: $sql)) {
+    if (mysqli_query($conn, $sql)) {
         // Redirect after successful update
-        header(header: 'Location: almuni-data.php');
+        header('Location: almuni-data.php');
+        exit; // Ensure no further code is executed after the redirect
     } else {
         // Display error message if the update fails
         echo "<script>alert('Data Not Updated. Error: " . mysqli_error($conn) . "');</script>";
@@ -44,7 +44,7 @@ if (isset($_POST["update"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Update Almuni Data</title>
+    <title>Update Alumni Data</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="bootstrap-3.4.1-dist/css/bootstrap.css" />
@@ -82,7 +82,7 @@ if (isset($_POST["update"])) {
             <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <b>Update Almuni Form</b>
+                        <b>Update Alumni Form</b>
                     </div>
                     <div class="panel-body">
                         <div>
