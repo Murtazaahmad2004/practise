@@ -1,8 +1,9 @@
 <?php
+
 include "sidebar.php";
 include "dbconnection.php";
 
-if (isset($_POST["Generate"])) 
+if (isset($_POST["submit"])) 
 {
     $id = $_POST['id'];
     $name = $_POST['name'];
@@ -13,9 +14,9 @@ if (isset($_POST["Generate"]))
             VALUES ('$id', '$name', '$deg', '$pro')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Data Inserted.')</script>";
+        echo "<script>alert('Data Inserted.');</script>";
     } else {
-        echo "<script>alert('Data Not Inserted.')</script>";
+        echo "<script>alert('Data Not Inserted.');</script>";
     }
 
     mysqli_close($conn);
@@ -41,12 +42,12 @@ if (isset($_POST["Generate"]))
             margin-top: 2%;
         }
     </style>
-<script>
-    function goToNextPage() {
-        window.location.href="challan.php";
+    <script>
+        function goToNextPage() {
+            window.location.href="challan.php";
     }
-    function openNewWindow(event) {
-        event.preventDefault();
+        function openNewWindow(event) {
+            event.preventDefault();
     }
     </script>
 </head>
@@ -64,22 +65,22 @@ if (isset($_POST["Generate"]))
                                 <div class="fields">
                                     <div class="input-field">
                                         <label>Std Id</label>
-                                        <input type="id" name="id" placeholder="Enter Std Id" class="form-control" />
+                                        <input type="text" name="id" placeholder="Enter Std Id" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Student Name</label>
-                                        <input type="text" name="name" placeholder="Enter Student Name" class="form-control" />
+                                        <input type="text" name="name" placeholder="Enter Student Name" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Degree</label>
-                                        <input type="text" name="deg" placeholder="Degree Name" class="form-control" />
+                                        <input type="text" name="deg" placeholder="Degree Name" class="form-control" required />
                                     </div>
                                     <div class="input-field">
                                         <label>Program</label>
-                                        <input type="text" name="prog" placeholder="Enter Program" class="form-control" />
+                                        <input type="text" name="prog" placeholder="Enter Program" class="form-control" required />
                                     </div>
-                                    <div class="form-group2">
-                                        <input type="button" value="Generate" class="form-control btn btn-primary" id="btnHome" onclick="goToNextPage(event)"/>
+                                    <div class="form-group">
+                                        <input type="submit" name="submit" value="Submit" class="form-control btn btn-primary" onclick="goToNextPage(event)"/>
                                     </div>
                             </form>
                         </div>
