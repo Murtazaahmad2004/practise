@@ -15,6 +15,7 @@ if (isset($_POST["submit"]))
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Data Inserted.');</script>";
+        echo "<script>window.open('challan.php','_self')</script>";
     } else {
         echo "<script>alert('Data Not Inserted.');</script>";
     }
@@ -42,14 +43,6 @@ if (isset($_POST["submit"]))
             margin-top: 2%;
         }
     </style>
-    <script>
-        function goToNextPage() {
-            window.location.href="challan.php";
-    }
-        function openNewWindow(event) {
-            event.preventDefault();
-    }
-    </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -80,7 +73,7 @@ if (isset($_POST["submit"]))
                                         <input type="text" name="prog" placeholder="Enter Program" class="form-control" required />
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" name="submit" value="Submit" class="form-control btn btn-primary" onclick="goToNextPage(event)"/>
+                                        <input type="submit" name="submit" value="Generate" class="form-control btn btn-primary"/>
                                     </div>
                             </form>
                         </div>
