@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="styles.css" />
 <style>
 .box-title{
-    background-color: darkgray;
+    background-color:black;
     width: 12%;
+    color: aliceblue;
+
 }
 .card3 {
     text-align: left;
@@ -22,8 +24,9 @@
 </style>
 </head>
 <body>
-    <div class="">
+    <div>
         <?php include 'sidebar.php'?>
+        <?php include 'navbar2.php'?>
     </div>
 <div class="card3">
     <h3 class="box-title">Attendence:</h3>
