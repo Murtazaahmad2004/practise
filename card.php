@@ -13,14 +13,14 @@ include "sidebar.php";
             padding-top: 10px;
             padding-bottom: 20px;
             padding-left: 30px;
-            padding-right: 40px;
+            /* padding-right: 40px; */
         }
         .box-title{
             margin-left: 180px;
         }
         .form-group{
             width: 100px;
-            margin-left: 1250px;
+            margin-left: 1220px;
         }
     </style>
 </head>
@@ -39,66 +39,66 @@ include "sidebar.php";
         <tr>
             <td>10-08-2024</td>
             <td>Saturday</td>
-            <td>English</td>
+            <td>Data Structure(Theory)</td>
             <td>Y</td>
             <td>Y</td>
-            <td>09</td>
+            <td>02</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>12-08-2024</td>
             <td>Monday</td>
-            <td>Math</td>
+            <td>Data Structure(Lab)</td>
             <td>Y</td>
             <td>Y</td>
-            <td>09</td>
+            <td>03</td>
             <td>10:00AM-01:00PM</td>
         </tr>
         <tr>
             <td>14-08-2024</td>
             <td>Wednesday</td>
-            <td>Urdu</td>
+            <td>Intro To Software Engeerning</td>
             <td>Y</td>
             <td>Y</td>
-            <td>09</td>
+            <td>04</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>16-08-2024</td>
             <td>Friday</td>
-            <td>Computer</td>
+            <td>Operating System(Theory)</td>
             <td>Y</td>
             <td>Y</td>
-            <td>09</td>
+            <td>05</td>
             <td>10:00AM-01:00PM</td>
         </tr>
         <tr>
             <td>17-08-2024</td>
             <td>Saturday</td>
-            <td>Pakstudy</td>
+            <td>Operating System(Lab)</td>
             <td>Y</td>
             <td>Y</td>
-            <td>09</td>
+            <td>06</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>20-08-2024</td>
             <td>Tuesday</td>
-            <td>Chmistry</td>
+            <td>Principle Of Economics And Management</td>
             <td>Y</td>
             <td>Y</td>
-            <td>09</td>
+            <td>07</td>
             <td>10:00AM-01:00PM</td>
         </tr>
         <tr>
             <td>21-08-2024</td>
             <td>Wednesday</td>
-            <td>Physics</td>
+            <td>IT Depth-Elective(Theory)</td>
             <td>Y</td>
             <td>Y</td>
-            <td>09</td>
+            <td>08</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>22-08-2024</td>
             <td>Thursday</td>
-            <td>Islamiyat</td>
+            <td>IT Depth-Elective(Lab)</td>
             <td>Y</td>
             <td>Y</td>
             <td>09</td>

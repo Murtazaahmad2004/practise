@@ -33,52 +33,52 @@ include "sidebar.php";
         <tr>
             <td>10-08-2024</td>
             <td>Saturday</td>
-            <td>English</td>
-            <td>09</td>
+            <td>Data Structure(Theory)</td>
+            <td>02</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>12-08-2024</td>
             <td>Monday</td>
-            <td>Math</td>
-            <td>09</td>
+            <td>Data Structure(Lab)</td>
+            <td>03</td>
             <td>10:00AM-01:00PM</td>
         </tr>
         <tr>
             <td>14-08-2024</td>
             <td>Wednesday</td>
-            <td>Urdu</td>
-            <td>09</td>
+            <td>Intro To Software Engeerning</td>
+            <td>04</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>16-08-2024</td>
             <td>Friday</td>
-            <td>Computer</td>
-            <td>09</td>
+            <td>Operating System(Theory)</td>
+            <td>05</td>
             <td>10:00AM-01:00PM</td>
         </tr>
         <tr>
             <td>17-08-2024</td>
             <td>Saturday</td>
-            <td>Pakstudy</td>
-            <td>09</td>
+            <td>Operating System(Lab)</td>
+            <td>06</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>20-08-2024</td>
             <td>Tuesday</td>
-            <td>Chmistry</td>
-            <td>09</td>
+            <td>Principle Of Economics And Management</td>
+            <td>07</td>
             <td>10:00AM-01:00PM</td>
         </tr>
         <tr>
             <td>21-08-2024</td>
             <td>Wednesday</td>
-            <td>Physics</td>
-            <td>09</td>
+            <td>IT Depth-Elective(Theory)</td>
+            <td>08</td>
             <td>10:00AM-01:00PM</td>
         </tr>
             <td>22-08-2024</td>
             <td>Thursday</td>
-            <td>Islamiyat</td>
+            <td>IT Depth-Elective(Lab)</td>
             <td>09</td>
             <td>10:00AM-01:00PM</td>
         </tr>
