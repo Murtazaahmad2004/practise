@@ -25,7 +25,7 @@
          }
          .containerS{
          background-color:brown;
-         margin-top: 50px;
+         margin-top: 25px;
          width: 70%;
          height: 50px;
          margin-left: 335px;
@@ -33,24 +33,15 @@
          color: aliceblue;
          font-size: 15px;
          }
-         .labeld{
-         margin-left: 12%;
-         }
-         .labeled{
-         margin-left: 1125px;
-         }
       </style>
    </head>
    <body>
       <div class="header">
          <label>Student Management System!</label>
       </div>
-      <div class="containerD">
-         <label class="labeld">DashBoard</label>
-         <label class="labeled">Home/DashBoard</label>
-      </div>
       <div class="containerS">
-         <p>Kindly be informed that, starting from May, 2024 a late fee of 1000 rupees will be added to any outstanding transport fees for Hamdard University on 16th of every month.", "We kindly request all students to ensure timely payment to avoid this additional charge.</p>
+         <p>Kindly be informed that, starting from May, 2024 a late fee of 1000 rupees will be added to any outstanding transport fees for Hamdard University on 16th of every month." 
+            "We kindly request all students to ensure timely payment to avoid this additional charge.</p>
       </div>
    </body>
 </html>

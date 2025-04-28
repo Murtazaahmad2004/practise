@@ -11,7 +11,7 @@
            $stdIdErr = "Student ID is required.";
        } else {
            $stdId = input_data($_POST['std_id']);
-           if (!is_numeric($stdId)) {  // Assuming Std Id should be numeric
+           if (!preg_match('/^[0-9]+-[0-9]+$/', $stdId)) {  // Allow formats like 100-2025
                $stdIdErr = "Invalid Student ID format.";
            }
        }
@@ -41,9 +41,9 @@
            $sql = "SELECT * FROM user_table WHERE Email = '$email' AND Password = '$pass'";
            $que = mysqli_query($conn, $sql);
    
-       if ($que->num_rows > 0) {
+           if ($que->num_rows > 0) {
                // Insert the Std Id into the std_info table if login is successful
-               $sql = "INSERT INTO std_info (`Std ID`, Email, Password) VALUES ('$email', '$pass', '$stdId')";
+               $sql = "INSERT INTO std_info (`Std ID`, Email, Password) VALUES ('$stdId', '$email', '$pass')";
                mysqli_query($conn, $sql);
    
                echo "<script>alert('Login Ok')</script>";
@@ -62,7 +62,7 @@
        $data = htmlspecialchars($data);
        return $data;
    }
-   ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
