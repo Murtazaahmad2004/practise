@@ -16,7 +16,7 @@
        $ci = $_POST['city'];
    
        // SQL insert query
-       $sql = "INSERT INTO addmission_info (`Std Id`, `First Name`, `Last Name`, `Student CNIC`, `Father Name`, 
+       $sql = "INSERT INTO admission_info (`Std Id`, `First Name`, `Last Name`, `Student CNIC`, `Father Name`, 
                      `Father CNIC`, `Contact Number`, `Address`, `Province`, `City`) 
                VALUES ('$id', '$fname', '$lname', '$cnic', '$faname', '$fcnic', '$cno', '$add', '$pro', '$ci')";
 
